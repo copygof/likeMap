@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
+import RNGooglePlaces from 'react-native-google-places';
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,58 +21,69 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 let id = 0;
 
 class MapViews extends Component {
-   state = {
-    region: {
-      latitude: LATITUDE,
-      longitude: LONGITUDE,
-      latitudeDelta: LATITUDE_DELTA,
-      longitudeDelta: LONGITUDE_DELTA,
-    },
-    markers: [],
+   constructor(props) {
+     super(props)
+     this.state = {
+      region: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      markers: [],
+    }
+   }
+
+  // ref={ref => { this.map = ref; }}
+
+  componentDidMount() {
+    
+    RNGooglePlaces.getCurrentPlace()
+    .then((results) => {      
+      const { latitude = '', longitude = '' } = results[0]
+      console.log(latitude, longitude)
+      
+      this.setState({
+        region: {
+          ...this.state.region,
+          latitude,
+          longitude
+        }
+      })
+      return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${MY_KEY}`)
+    })
+    .then(res => res.json())
+    .then(value => console.log('fetch', value))
+    .catch((error) => console.log(error.message));
+  }
+
+  onAnimate() {
+    this.map.animateToRegion({
+      ...this.state.regions,
+      // latitude,
+      // longitude
+    })
+    // animateToRegion //animateToCoordinate
   }
 
   onRegionChange(region) {
     this.setState({ region });
   }
 
-  jumpRandom() {
-    this.setState({ region: this.randomRegion() });
-  }
-
-  animateRandom() {
-    this.map.animateToRegion(this.randomRegion());
-  }
-
-  animateRandomCoordinate() {
-    this.map.animateToCoordinate(this.randomCoordinate());
-  }
-
-  randomCoordinate() {
-    const region = this.state.region;
-    return {
-      latitude: region.latitude + ((Math.random() - 0.5) * (region.latitudeDelta / 2)),
-      longitude: region.longitude + ((Math.random() - 0.5) * (region.longitudeDelta / 2)),
-    };
-  }
-
-  randomRegion() {
-    return {
-      ...this.state.region,
-      ...this.randomCoordinate(),
-    };
-  }
-
   render () {
+    
     return (
       <View style ={styles.container}>
-        {/* <MapView.Animated
+         <MapView.Animated
           ref={ref => { this.map = ref; }}
           style={styles.map}
           region={this.state.region}
           initialRegion={this.state.region}
-          onPress={(e) => this.onMapPress(e)}
+          // onPress={(e) => this.onMapPress(e)}
           showsUserLocation={true}
-          onRegionChange={this.onRegionChange.bind(this)}
+          showsCompass={false}
+          showsIndoors={false}
+          onRegionChange={region => this.onRegionChange(region)}
         >
           {this.state.markers.map(marker => (
             <MapView.Marker
@@ -80,40 +92,7 @@ class MapViews extends Component {
               pinColor={marker.color}
             />
           ))}
-        </MapView.Animated> */}
-        <MapView
-          provider={this.props.provider}
-          ref={ref => { this.map = ref }}
-          style={styles.map}
-          initialRegion={this.state.region}
-          onRegionChange={region => this.onRegionChange(region)}
-        />
-        <View style={[styles.bubble, styles.latlng]}>
-          <Text style={{ textAlign: 'center' }}>
-            {this.state.region.latitude.toPrecision(7)},
-            {this.state.region.longitude.toPrecision(7)}
-          </Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => this.jumpRandom()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text style={styles.buttonText}>Jump</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.animateRandom()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text style={styles.buttonText}>Animate (Region)</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.animateRandomCoordinate()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text style={styles.buttonText}>Animate (Coordinate)</Text>
-          </TouchableOpacity>
-        </View>
+        </MapView.Animated> 
       </View>
     )
   }
