@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12F72EB747EB16E594796025DC61E0D6 /* Pods-likeMap-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27530EF994C5D4C82B6B888D0378FC02 /* Pods-likeMap-tvOSTests-dummy.m */; };
+		4419D9556F8BE5F98289A92D8C2A7581 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */; };
+		54F7EE042BA50CEF712353EA292C091C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */; };
+		9C0DCE15205176BF3A714ACEC42DD536 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		AD110D002C31D42DCE91DAAB27A60D1A /* Pods-likeMap-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C37FA37D75CD7B4A585250A002EC609 /* Pods-likeMap-dummy.m */; };
+		FE7DF3891C40284BD04DC980F26F72E5 /* Pods-likeMap-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 254CBDADD7A316A8528B8E5A37B0E285 /* Pods-likeMap-tvOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07790BD46C0A51AE9AF086D8F62242CC /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		1117A6D1FE68A6F983D560933AF5E265 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		254CBDADD7A316A8528B8E5A37B0E285 /* Pods-likeMap-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-likeMap-tvOS-dummy.m"; sourceTree = "<group>"; };
+		27530EF994C5D4C82B6B888D0378FC02 /* Pods-likeMap-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-likeMap-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		30E91F39BD170758A6B7E7E8B4AE496E /* Pods-likeMap-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4AAE587C340696CF1AC40566FD5B4781 /* Pods-likeMap-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-resources.sh"; sourceTree = "<group>"; };
+		4E1D9E794D28163B7744BF094525A7E9 /* Pods-likeMap-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5D1D94A12CB2DDB90A2D67E9CCEC47F8 /* libPods-likeMap-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-likeMap-tvOS.a"; path = "libPods-likeMap-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6756C5B5A90BCEFDA3BAFC1DEA46CF53 /* Pods-likeMap-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		67E836F6F0600AE17DDED0076610FB11 /* Pods-likeMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap.debug.xcconfig"; sourceTree = "<group>"; };
+		69BDD668EE11C9DDFCCA4395EF26A1E8 /* Pods-likeMap-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-likeMap-acknowledgements.markdown"; sourceTree = "<group>"; };
+		715A7FCAC982D8A9B42900AEF092849F /* Pods-likeMap-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-likeMap-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		846CB985BE9C67CADB7FD74604AB789F /* Pods-likeMap-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-tvOS-resources.sh"; sourceTree = "<group>"; };
+		8589F4370418474B21D7D452C00426C7 /* Pods-likeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap.release.xcconfig"; sourceTree = "<group>"; };
+		8A737C307BB74213C83AA720726B3531 /* Pods-likeMap-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-likeMap-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8A821D23F5F334853EB3DB5F29E6A0DD /* Pods-likeMap-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		8BCCCA295DEE22197B0C283775AB5A26 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		8C37FA37D75CD7B4A585250A002EC609 /* Pods-likeMap-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-likeMap-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		955D3A22EB34AB333524A949DC729F6B /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		96BA49BE003401E6FC9045752B5C8DD9 /* Pods-likeMap-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		9FBDD3F6D9AA3FF47F820B01A19832D6 /* libPods-likeMap-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-likeMap-tvOSTests.a"; path = "libPods-likeMap-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFF918A2E99C43D6D6DB33E91E9A4BFF /* Pods-likeMap-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-likeMap-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C8F42A72C989BD5DB674CD1C0CD8E72C /* Pods-likeMap-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-likeMap-acknowledgements.plist"; sourceTree = "<group>"; };
+		CA9245AB5B86A5BCD1E0D3BF7079D64B /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		CFCE0D5C114078CE5642C3B68FAFAA81 /* Pods-likeMap-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-likeMap-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D1DBCD0071D70866EBEFA8E983E0A2FE /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		D8818589C23382A6083E9ABE56E8C663 /* libPods-likeMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-likeMap.a"; path = "libPods-likeMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1802A1E5604C63E7B2AA8490DA1E1D8 /* Pods-likeMap-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-likeMap-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		F769EDE7CC5A77CDBE3B2309AF3BD5FA /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Versions/A/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		F810E02CC0BF73CCDE21EEB37AA75A95 /* Pods-likeMap-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-frameworks.sh"; sourceTree = "<group>"; };
+		F8567FFA809DD02B36CFB593922A14EA /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		FBA2069CFBBAEA0220F06185AACF632D /* Pods-likeMap-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-likeMap-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		042A37E53BC2E82AC213795B688E50D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54F7EE042BA50CEF712353EA292C091C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DDDEDC6A8E681D1B30B93D2487AE803 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4419D9556F8BE5F98289A92D8C2A7581 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C50DD135467882F9193FD68227FA39A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C0DCE15205176BF3A714ACEC42DD536 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		057612C31241123A1B53E2F8FEE23AB0 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				8BA44F82F96D164DA342FB09A0BEE150 /* Frameworks */,
+				9595338FF99D6E406412D70BB160C308 /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		20F731AE46C73F232AF0C168DC383CF9 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		24E6408847EA4697EC99A3C22F9B2F8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA9245AB5B86A5BCD1E0D3BF7079D64B /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2B74280914641A616C58D5D70B22186C /* Pods-likeMap */ = {
+			isa = PBXGroup;
+			children = (
+				69BDD668EE11C9DDFCCA4395EF26A1E8 /* Pods-likeMap-acknowledgements.markdown */,
+				C8F42A72C989BD5DB674CD1C0CD8E72C /* Pods-likeMap-acknowledgements.plist */,
+				8C37FA37D75CD7B4A585250A002EC609 /* Pods-likeMap-dummy.m */,
+				F810E02CC0BF73CCDE21EEB37AA75A95 /* Pods-likeMap-frameworks.sh */,
+				4AAE587C340696CF1AC40566FD5B4781 /* Pods-likeMap-resources.sh */,
+				67E836F6F0600AE17DDED0076610FB11 /* Pods-likeMap.debug.xcconfig */,
+				8589F4370418474B21D7D452C00426C7 /* Pods-likeMap.release.xcconfig */,
+			);
+			name = "Pods-likeMap";
+			path = "Target Support Files/Pods-likeMap";
+			sourceTree = "<group>";
+		};
+		45A6375AD18305E8BA7B79AD1BE61E9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCCA295DEE22197B0C283775AB5A26 /* GoogleMaps.framework */,
+				1117A6D1FE68A6F983D560933AF5E265 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58996781A54EE964D7111D73083A18A5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5C2F285E3901B829AAE3545C9ACF7622 /* Pods-likeMap-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				8A737C307BB74213C83AA720726B3531 /* Pods-likeMap-tvOS-acknowledgements.markdown */,
+				E1802A1E5604C63E7B2AA8490DA1E1D8 /* Pods-likeMap-tvOS-acknowledgements.plist */,
+				254CBDADD7A316A8528B8E5A37B0E285 /* Pods-likeMap-tvOS-dummy.m */,
+				96BA49BE003401E6FC9045752B5C8DD9 /* Pods-likeMap-tvOS-frameworks.sh */,
+				846CB985BE9C67CADB7FD74604AB789F /* Pods-likeMap-tvOS-resources.sh */,
+				CFCE0D5C114078CE5642C3B68FAFAA81 /* Pods-likeMap-tvOS.debug.xcconfig */,
+				4E1D9E794D28163B7744BF094525A7E9 /* Pods-likeMap-tvOS.release.xcconfig */,
+			);
+			name = "Pods-likeMap-tvOS";
+			path = "Target Support Files/Pods-likeMap-tvOS";
+			sourceTree = "<group>";
+		};
+		7A999BD5B4C2C01904FC59776164FBE1 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				45A6375AD18305E8BA7B79AD1BE61E9D /* Frameworks */,
+				24E6408847EA4697EC99A3C22F9B2F8E /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A42F72DC1D780481325DD00969B19BB6 /* Frameworks */,
+				C62832EC902B481843EFC870F9D95CC2 /* Pods */,
+				8A9330F72D4F7A37F56A8F069E6A1FA0 /* Products */,
+				D459A5AD6F9DBB460738B8DCC9AECF51 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8A9330F72D4F7A37F56A8F069E6A1FA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8818589C23382A6083E9ABE56E8C663 /* libPods-likeMap.a */,
+				5D1D94A12CB2DDB90A2D67E9CCEC47F8 /* libPods-likeMap-tvOS.a */,
+				9FBDD3F6D9AA3FF47F820B01A19832D6 /* libPods-likeMap-tvOSTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BA44F82F96D164DA342FB09A0BEE150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				955D3A22EB34AB333524A949DC729F6B /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FFA7EAE118844748AD9685060A6B673 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FD4ED290151C28ABCF7A3EA0217355EB /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		9335B78F64E389AD6BD28E5033911D2C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F769EDE7CC5A77CDBE3B2309AF3BD5FA /* GooglePlacePicker.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9595338FF99D6E406412D70BB160C308 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8567FFA809DD02B36CFB593922A14EA /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9C0A1FBBD02B7528347BC7FB84DE24F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07790BD46C0A51AE9AF086D8F62242CC /* GooglePlacePicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A42F72DC1D780481325DD00969B19BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58996781A54EE964D7111D73083A18A5 /* iOS */,
+				20F731AE46C73F232AF0C168DC383CF9 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB82888B217B36EDFF7746AC954BD01B /* Pods-likeMap-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFF918A2E99C43D6D6DB33E91E9A4BFF /* Pods-likeMap-tvOSTests-acknowledgements.markdown */,
+				715A7FCAC982D8A9B42900AEF092849F /* Pods-likeMap-tvOSTests-acknowledgements.plist */,
+				27530EF994C5D4C82B6B888D0378FC02 /* Pods-likeMap-tvOSTests-dummy.m */,
+				8A821D23F5F334853EB3DB5F29E6A0DD /* Pods-likeMap-tvOSTests-frameworks.sh */,
+				FBA2069CFBBAEA0220F06185AACF632D /* Pods-likeMap-tvOSTests-resources.sh */,
+				30E91F39BD170758A6B7E7E8B4AE496E /* Pods-likeMap-tvOSTests.debug.xcconfig */,
+				6756C5B5A90BCEFDA3BAFC1DEA46CF53 /* Pods-likeMap-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-likeMap-tvOSTests";
+			path = "Target Support Files/Pods-likeMap-tvOSTests";
+			sourceTree = "<group>";
+		};
+		C62832EC902B481843EFC870F9D95CC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5C0912CEC7444CFF51EFFE502270519 /* GoogleMaps */,
+				CCA175DF4D87459CA14C4E01BCFDEF95 /* GooglePlacePicker */,
+				057612C31241123A1B53E2F8FEE23AB0 /* GooglePlaces */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CCA175DF4D87459CA14C4E01BCFDEF95 /* GooglePlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				9C0A1FBBD02B7528347BC7FB84DE24F5 /* Frameworks */,
+				9335B78F64E389AD6BD28E5033911D2C /* Resources */,
+			);
+			name = GooglePlacePicker;
+			path = GooglePlacePicker;
+			sourceTree = "<group>";
+		};
+		D459A5AD6F9DBB460738B8DCC9AECF51 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B74280914641A616C58D5D70B22186C /* Pods-likeMap */,
+				5C2F285E3901B829AAE3545C9ACF7622 /* Pods-likeMap-tvOS */,
+				AB82888B217B36EDFF7746AC954BD01B /* Pods-likeMap-tvOSTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E5C0912CEC7444CFF51EFFE502270519 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				8FFA7EAE118844748AD9685060A6B673 /* Base */,
+				7A999BD5B4C2C01904FC59776164FBE1 /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		FD4ED290151C28ABCF7A3EA0217355EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1DBCD0071D70866EBEFA8E983E0A2FE /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BEB8B2B78D56C35B62F454F58CB6372 /* Pods-likeMap-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BEDB431AC66DAEE9B009B1BEE25427 /* Build configuration list for PBXNativeTarget "Pods-likeMap-tvOSTests" */;
+			buildPhases = (
+				BDEC2962C7A9E16EBEF4C9358769919D /* Sources */,
+				1DDDEDC6A8E681D1B30B93D2487AE803 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-likeMap-tvOSTests";
+			productName = "Pods-likeMap-tvOSTests";
+			productReference = 9FBDD3F6D9AA3FF47F820B01A19832D6 /* libPods-likeMap-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		945A94EDF4F4AAEDBABE9DF7CE909C95 /* Pods-likeMap-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DDB7C179EAE7CF65466E438E7FC1140 /* Build configuration list for PBXNativeTarget "Pods-likeMap-tvOS" */;
+			buildPhases = (
+				71C9E24BC1F1FCA8734457AF93EEBD0E /* Sources */,
+				042A37E53BC2E82AC213795B688E50D1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-likeMap-tvOS";
+			productName = "Pods-likeMap-tvOS";
+			productReference = 5D1D94A12CB2DDB90A2D67E9CCEC47F8 /* libPods-likeMap-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DAAB71DDF0533779BD31F947F9282173 /* Pods-likeMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4047E55276D149E19FED172713D525F6 /* Build configuration list for PBXNativeTarget "Pods-likeMap" */;
+			buildPhases = (
+				7CDB90F924C83FE529D885E855E50459 /* Sources */,
+				C50DD135467882F9193FD68227FA39A3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-likeMap";
+			productName = "Pods-likeMap";
+			productReference = D8818589C23382A6083E9ABE56E8C663 /* libPods-likeMap.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 8A9330F72D4F7A37F56A8F069E6A1FA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAAB71DDF0533779BD31F947F9282173 /* Pods-likeMap */,
+				945A94EDF4F4AAEDBABE9DF7CE909C95 /* Pods-likeMap-tvOS */,
+				8BEB8B2B78D56C35B62F454F58CB6372 /* Pods-likeMap-tvOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71C9E24BC1F1FCA8734457AF93EEBD0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE7DF3891C40284BD04DC980F26F72E5 /* Pods-likeMap-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CDB90F924C83FE529D885E855E50459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD110D002C31D42DCE91DAAB27A60D1A /* Pods-likeMap-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDEC2962C7A9E16EBEF4C9358769919D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F72EB747EB16E594796025DC61E0D6 /* Pods-likeMap-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0DE09264DD76ECDBB6E0B7D9F2478BC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8589F4370418474B21D7D452C00426C7 /* Pods-likeMap.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		13553EE8F24C514AA6441D2CE06D05EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		3350E9F1841B6DD43CDF24B165403CEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E1D9E794D28163B7744BF094525A7E9 /* Pods-likeMap-tvOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		74FA31AE09F2210B704D27B3BE47D235 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6756C5B5A90BCEFDA3BAFC1DEA46CF53 /* Pods-likeMap-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		AAFDE21E3488A66D1DD603B7EB80D963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30E91F39BD170758A6B7E7E8B4AE496E /* Pods-likeMap-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		AFC68722148905714165497912F92B58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC23F88579FD3897193CC58E5125B08B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFCE0D5C114078CE5642C3B68FAFAA81 /* Pods-likeMap-tvOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		D80F312A565ACA93A4644AFA06383719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E836F6F0600AE17DDED0076610FB11 /* Pods-likeMap.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00BEDB431AC66DAEE9B009B1BEE25427 /* Build configuration list for PBXNativeTarget "Pods-likeMap-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDE21E3488A66D1DD603B7EB80D963 /* Debug */,
+				74FA31AE09F2210B704D27B3BE47D235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DDB7C179EAE7CF65466E438E7FC1140 /* Build configuration list for PBXNativeTarget "Pods-likeMap-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC23F88579FD3897193CC58E5125B08B /* Debug */,
+				3350E9F1841B6DD43CDF24B165403CEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13553EE8F24C514AA6441D2CE06D05EA /* Debug */,
+				AFC68722148905714165497912F92B58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4047E55276D149E19FED172713D525F6 /* Build configuration list for PBXNativeTarget "Pods-likeMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D80F312A565ACA93A4644AFA06383719 /* Debug */,
+				0DE09264DD76ECDBB6E0B7D9F2478BC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
