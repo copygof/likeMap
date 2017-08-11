@@ -41,7 +41,8 @@ class MapViewContainer extends Component {
       longitude: LONGITUDE,
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
-    }
+    },
+    slideOpen: false
   }
 
   componentDidMount() {
@@ -77,7 +78,7 @@ class MapViewContainer extends Component {
         }}
       >
         {
-          this.state.isFocus
+          this.state.slideOpen
             ? <Image style={styles.icon} source={require('./image/ic_keyboard_backspace.png')} />
             : <Image style={styles.icon} source={require('./image/ic_map.png')} />
         }
@@ -93,10 +94,11 @@ class MapViewContainer extends Component {
   }
   renderTextInput() {
     return (
-      <View style={[styles.wrapTextInput, { backgroundColor: (this.state.isFocus || this.state.textValue) ? '#f5f5f5' : 'transparent', }]}>
+      <View style={[styles.wrapTextInput, { backgroundColor: this.state.slideOpen ? '#f5f5f5' : 'transparent', }]}>
         <View style={styles.wrapperTextInput}>
           {this.renderMapButton()}
           <TextInput
+            selectTextOnFocus
             underlineColorAndroid={"#ffffff"}
             style={styles.textInput}
             placeholder={'Where your go ?'}
@@ -118,6 +120,7 @@ class MapViewContainer extends Component {
   }
 
   startAnimScrollView() {
+    this.setState({ slideOpen: true })
     Animated.spring(this.state.animScrollView, {
       toValue: Platform.select({
         android: 75,
@@ -126,6 +129,7 @@ class MapViewContainer extends Component {
     }).start()
   }
   closeAnimScrollView() {
+    this.setState({ slideOpen: false })
     Animated.spring(this.state.animScrollView, {
       toValue: height
     }).start()
