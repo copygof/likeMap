@@ -13,9 +13,7 @@ import {
   Dimensions,
   Platform
 } from 'react-native'
-import { connect } from 'react-redux'
 import MapView from 'react-native-maps';
-import RNGooglePlaces from 'react-native-google-places'
 
 const { width, height } = Dimensions.get('window')
 
@@ -25,6 +23,8 @@ const LONGITUDE = -122.4324;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 let id = 0;
+const RADIUS = '500' // meters
+const LANGUAGE_SEARCH_PLACE_DETAIL = 'th'
 
 const MY_KEY = 'AIzaSyCGYaDkW-n-bLIVfisWBTAsjMzFS7eZKhA'
 
@@ -35,6 +35,7 @@ class MapViewContainer extends Component {
     isFocus: false,
     animScrollView: new Animated.Value(height),
     place: [],
+    placeDetail: {},
     markers: [],
     region: {
       latitude: LATITUDE,
@@ -46,9 +47,9 @@ class MapViewContainer extends Component {
   }
 
   componentDidMount() {
-    RNGooglePlaces.getCurrentPlace()
-      .then((results) => {
-        const { latitude = '', longitude = '' } = results[0]
+    navigator.geolocation.getCurrentPosition(
+      (data) => {
+        const { latitude = '', longitude = '' } = data.coords
         this.setState({
           region: {
             ...this.state.region,
@@ -56,8 +57,21 @@ class MapViewContainer extends Component {
             longitude
           }
         })
-      })
-      .catch((error) => console.log(error.message));
+      },
+      (error) => console.log(error)
+    )
+    // RNGooglePlaces.getCurrentPlace()
+    //   .then((results) => {
+    //     const { latitude = '', longitude = '' } = results[0]
+    //     this.setState({
+    //       region: {
+    //         ...this.state.region,
+    //         latitude,
+    //         longitude
+    //       }
+    //     })
+    //   })
+    //   .catch((error) => console.log(error.message));
   }
 
   renderCloseText() {
@@ -85,12 +99,68 @@ class MapViewContainer extends Component {
       </TouchableOpacity>
     )
   }
+  searchPlaceAutoComplete(textValue) {
+    const { latitude, longitude } = this.state.region
+    fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${textValue}&location=${latitude},${longitude}&radius=${RADIUS}&key=${MY_KEY}`)
+    .then(res => res.json())
+    .then((res) => {
+      console.log('res', res)
+      this.setState({
+        place: res.predictions
+      })
+    })
+    .catch(error => console.log(error))
+  }
+  fetchPlaceDetailById(placeId) {
+    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${MY_KEY}`)
+    .then(res => res.json())
+  }
+  setPlaceDetail(res) {
+    const { result = { geometry: { location: { lat: '', lng: '' } } }} = res
+    const { lat: latitude = '', lng: longitude = '' } = result.geometry.location
+    this.setState({
+      placeDetail: result,
+        region: {
+        ...this.state.region,
+        latitude,
+        longitude
+      },
+      textValue: result.name,
+        markers: [{
+        coordinate: { latitude, longitude },
+        key: id++,
+        color: 'red',
+      }],
+      isFocus: false
+    })
+  }
+  setMarkerById(placeId) {
+    this.fetchPlaceDetailById(placeId)
+    .then((res) => {
+      this.setPlaceDetail(res)
+      this.closeAnimScrollView()
+    })
+    .catch((error) => console.log(error));
+  }
+  nearbysearch(textValue) {
+    const { latitude, longitude } = this.state.region
+    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?input=${textValue}&location=${latitude},${longitude}&rankby=distance&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${MY_KEY}`)
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        place: res.results.map(value => ({
+          ...value,
+          structured_formatting: {
+            main_text: value.name,
+            secondary_text: value.vicinity
+          }
+        }))
+      })
+    })
+  }
   onChangeText(textValue) {
     this.setState({ textValue })
-    RNGooglePlaces.getAutocompletePredictions(textValue)
-      .then((place) => {
-        this.setState({ place })
-      })
+    this.searchPlaceAutoComplete(textValue)
   }
   renderTextInput() {
     return (
@@ -136,7 +206,7 @@ class MapViewContainer extends Component {
   }
 
   renderRow(data, i, length) {
-    const { primaryText, secondaryText, fullText } = data
+    const { main_text = '', secondary_text = '' } = data.structured_formatting
     return (
       <View style={styles.list} key={i}>
         <Image style={styles.iconPlace} source={require('./image/ic_place.png')} />
@@ -145,31 +215,9 @@ class MapViewContainer extends Component {
              borderTopWidth: i === 0 ? 1 : 0.5,
              borderBottomWidth: i === length - 1 ? 1 : 0.5,
           }]}
-          onPress={() => {
-            RNGooglePlaces.lookUpPlaceByID(data.placeID)
-              .then((results) => {
-                const { latitude, longitude } = results
-                this.setState({
-                  locationValue: results,
-                  region: {
-                    ...this.state.region,
-                    latitude,
-                    longitude
-                  },
-                  textValue: fullText,
-                  markers: [{
-                    coordinate: { latitude, longitude },
-                    key: id++,
-                    color: 'red',
-                  }],
-                  isFocus: false
-                })
-                this.closeAnimScrollView()
-              })
-              .catch((error) => console.log(error.message));
-          }}>
-          <Text numberOfLines={1}>{primaryText}</Text>
-          <Text numberOfLines={1}>{secondaryText}</Text>
+          onPress={() => this.setMarkerById(data.place_id)}>
+          <Text numberOfLines={1}>{main_text}</Text>
+          <Text numberOfLines={1}>{secondary_text}</Text>
         </TouchableOpacity>
       </View>
     )
@@ -208,16 +256,8 @@ class MapViewContainer extends Component {
     const { latitude, longitude } = e.nativeEvent.coordinate
     return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${MY_KEY}`)
       .then(res => res.json())
-      .then(value => {
-        return RNGooglePlaces.lookUpPlaceByID(value.results[0].place_id)
-      })
-      .then((place) => {
-        this.setState({ textValue: place.address })
-        return RNGooglePlaces.getAutocompletePredictions(place.address)
-      })
-      .then((place) => {
-        this.setState({ place })
-      })
+      .then(value => this.setMarkerById(value.results[0].place_id))
+      .then(() => this.nearbysearch(this.state.textValue))
   }
 
   renderMapView() {
@@ -365,8 +405,4 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps = state => ({
-  map: state.map
-})
-
-export default connect(mapStateToProps)(MapViewContainer)
+export default MapViewContainer
