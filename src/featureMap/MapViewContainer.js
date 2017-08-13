@@ -5,7 +5,6 @@ import {
   ScrollView,
   StyleSheet,
   TextInput,
-  TouchableWithoutFeedback,
   TouchableOpacity,
   Keyboard,
   Image,
@@ -16,34 +15,35 @@ import {
 import MapView from 'react-native-maps';
 
 const { width, height } = Dimensions.get('window')
-
 const ASPECT_RATIO = width / height
-const LATITUDE = 37.78825;
-const LONGITUDE = -122.4324;
-const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const LATITUDE = 37.78825
+const LONGITUDE = -122.4324
+const LATITUDE_DELTA = 0.0922
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 let id = 0;
 const RADIUS = '500' // meters
 const LANGUAGE_SEARCH_PLACE_DETAIL = 'th'
-
-const MY_KEY = 'AIzaSyCGYaDkW-n-bLIVfisWBTAsjMzFS7eZKhA'
+let ss
+const API_KEY = 'AIzaSyDHuVuz518BBNftdk3d2m1sttASsGosWLA'
 
 class MapViewContainer extends Component {
-
-  state = {
-    textValue: '',
-    isFocus: false,
-    animScrollView: new Animated.Value(height),
-    place: [],
-    placeDetail: {},
-    markers: [],
-    region: {
-      latitude: LATITUDE,
-      longitude: LONGITUDE,
-      latitudeDelta: LATITUDE_DELTA,
-      longitudeDelta: LONGITUDE_DELTA,
-    },
-    slideOpen: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      textValue: '',
+      isFocus: false,
+      animScrollView: new Animated.Value(height),
+      place: [],
+      placeDetail: {},
+      markers: [],
+      region: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      slideOpen: false
+    }
   }
 
   componentDidMount() {
@@ -60,18 +60,6 @@ class MapViewContainer extends Component {
       },
       (error) => console.log(error)
     )
-    // RNGooglePlaces.getCurrentPlace()
-    //   .then((results) => {
-    //     const { latitude = '', longitude = '' } = results[0]
-    //     this.setState({
-    //       region: {
-    //         ...this.state.region,
-    //         latitude,
-    //         longitude
-    //       }
-    //     })
-    //   })
-    //   .catch((error) => console.log(error.message));
   }
 
   renderCloseText() {
@@ -86,9 +74,9 @@ class MapViewContainer extends Component {
   renderMapButton() {
     return (
       <TouchableOpacity
-        onPress={() => {
+        onPress={() => { 
           this.closeAnimScrollView()
-          Keyboard.dismiss()
+          Keyboard.dismiss() 
         }}
       >
         {
@@ -101,7 +89,7 @@ class MapViewContainer extends Component {
   }
   searchPlaceAutoComplete(textValue) {
     const { latitude, longitude } = this.state.region
-    fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${textValue}&location=${latitude},${longitude}&radius=${RADIUS}&key=${MY_KEY}`)
+    fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${textValue}&location=${latitude},${longitude}&radius=${RADIUS}&key=${API_KEY}`)
     .then(res => res.json())
     .then((res) => {
       console.log('res', res)
@@ -112,21 +100,22 @@ class MapViewContainer extends Component {
     .catch(error => console.log(error))
   }
   fetchPlaceDetailById(placeId) {
-    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${MY_KEY}`)
+    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${API_KEY}`)
     .then(res => res.json())
   }
   setPlaceDetail(res) {
     const { result = { geometry: { location: { lat: '', lng: '' } } }} = res
     const { lat: latitude = '', lng: longitude = '' } = result.geometry.location
+    this.latitude = latitude
+    this.longitude = longitude
+
     this.setState({
       placeDetail: result,
-        region: {
-        ...this.state.region,
-        latitude,
-        longitude
-      },
+      // region: {
+      //   ...this.state.region
+      // },
       textValue: result.name,
-        markers: [{
+      markers: [{
         coordinate: { latitude, longitude },
         key: id++,
         color: 'red',
@@ -137,14 +126,21 @@ class MapViewContainer extends Component {
   setMarkerById(placeId) {
     this.fetchPlaceDetailById(placeId)
     .then((res) => {
-      this.setPlaceDetail(res)
-      this.closeAnimScrollView()
+      this.closeAnimScrollView(() => this.setPlaceDetail(res))
+    })
+    .then(() => {
+      this.map.animateToRegion({
+        latitude: this.latitude,
+        longitude: this.longitude,
+        latitudeDelta: LATITUDE_DELTA * 0.1,
+        longitudeDelta: LONGITUDE_DELTA * 0.1
+      }, 1000)
     })
     .catch((error) => console.log(error));
   }
   nearbysearch(textValue) {
     const { latitude, longitude } = this.state.region
-    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?input=${textValue}&location=${latitude},${longitude}&rankby=distance&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${MY_KEY}`)
+    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?input=${textValue}&location=${latitude},${longitude}&rankby=distance&language=${LANGUAGE_SEARCH_PLACE_DETAIL}&key=${API_KEY}`)
     .then(res => res.json())
     .then(res => {
       this.setState({
@@ -198,11 +194,11 @@ class MapViewContainer extends Component {
       }),
     }).start()
   }
-  closeAnimScrollView() {
+  closeAnimScrollView(cb = () => {}) {
     this.setState({ slideOpen: false })
     Animated.spring(this.state.animScrollView, {
       toValue: height
-    }).start()
+    }).start(cb())
   }
 
   renderRow(data, i, length) {
@@ -244,6 +240,7 @@ class MapViewContainer extends Component {
   }
 
   onMapPress(e) {
+    const { latitude, longitude } = e.nativeEvent.coordinate    
     this.setState({
       markers: [
         {
@@ -252,18 +249,35 @@ class MapViewContainer extends Component {
           color: 'red',
         },
       ],
+    }, () => {
+      this.map.animateToRegion({
+        latitude,
+        longitude,
+        latitudeDelta: this.state.region.latitudeDelta * 0.1,
+        longitudeDelta: this.state.region.latitudeDelta * 0.1
+      }, 1000)
     })
-    const { latitude, longitude } = e.nativeEvent.coordinate
-    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${MY_KEY}`)
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`)
       .then(res => res.json())
-      .then(value => this.setMarkerById(value.results[0].place_id))
+      .then(value => {
+        return this.fetchPlaceDetailById(value.results[0].place_id)
+      })
+      .then((res) => {
+        const { result } = res
+        console.log('result', res)
+        this.setState({
+          placeDetail: result,
+          textValue: result.name,
+          isFocus: false
+        })
+      })
       .then(() => this.nearbysearch(this.state.textValue))
   }
 
   renderMapView() {
     return (
       <View style={styles.mapContainer}>
-        <MapView.Animated
+        <MapView
           ref={ref => { this.map = ref; }}
           style={styles.map}
           region={this.state.region}
@@ -276,12 +290,13 @@ class MapViewContainer extends Component {
         >
           {this.state.markers.map(marker => (
             <MapView.Marker
+              identifier="marker"
               key={marker.key}
               coordinate={marker.coordinate}
               pinColor={marker.color}
             />
           ))}
-        </MapView.Animated>
+        </MapView>
       </View>
     )
   }
